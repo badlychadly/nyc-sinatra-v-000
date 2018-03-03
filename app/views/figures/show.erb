@@ -2,4 +2,8 @@
 
  <% @figure.landmarks.each do |landmark|%>
   <a href="/landmarks/<%=landmark.id%>"><%=landmark.name%></a>
+  <br>
  <% end %>
+ <br><br>
+
+ <button type="button" name="button"><a href="/figures/<%=@figure.id%>/edit">Edit Figure</a></button>
