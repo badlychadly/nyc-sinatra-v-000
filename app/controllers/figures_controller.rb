@@ -31,7 +31,12 @@ class FiguresController < ApplicationController
   end
 
   patch '/figures/:id' do
+    @figure = Figure.find_by(id: params[:id])
+    @figure.update(params[:figure])
+    @figure.landmarks.create(params[:landmark]) unless params[:landmark][:name].empty?
+    @figure.titles.create(params[:title]) unless params[:title][:name].empty?
 
+    redirect to("/figures/#{@figure.id}")
   end
 
 end
