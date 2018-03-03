@@ -1,10 +1,20 @@
 
 <h1>Figures</h1>
 
-<% Figure.all.each do |figure| %>
-  <a href="/figures/<%=figure.id%>"><%= figure.name %></a>
-  <br><br>
-<% end %>
+<table>
+  <th>Person Name</th>
+  <tr>
+    <% Figure.all.each do |figure| %>
+      <td align="center"><a href="/figures/<%= figure.id %>"><%= figure.name %></a>
+      <ul>
+        <%figure.titles.each do |title|%>
+        <li><%=title.name%></li>
+        <%end%>
+      </ul>
+     </tr> </td>
+  <% end %>
+</table>
+<br>
 <br>
 
 <button type="button" name="button"><a href="/figures/new">New Figure</a></button>
